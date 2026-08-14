@@ -595,7 +595,15 @@ document.addEventListener('keydown', (e) => {
     items = await dbGetAll();
   } catch (e) {
     console.error(e);
-    toast('浏览器存储不可用（无痕模式下无法使用）', 'error');
+    if (!window.indexedDB) {
+      // 360 浏览器等用 IE 兼容内核打开时的提示
+      toast('当前浏览器内核不支持，请切换到极速模式', 'error');
+      emptyTitle.textContent = '当前浏览器内核不支持';
+      emptyHint.textContent = '360浏览器请点击地址栏的图标切换到「极速模式」，或使用 Edge / Chrome 打开';
+      emptyEl.classList.remove('hidden');
+    } else {
+      toast('浏览器存储不可用（无痕模式下无法使用）', 'error');
+    }
     return;
   }
   render();

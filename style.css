@@ -245,6 +245,10 @@ button { font-family: inherit; }
 /* ============ 拖放遮罩 ============ */
 .drop-overlay {
   position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   inset: 0;
   z-index: 100;
   display: flex;
@@ -265,6 +269,10 @@ button { font-family: inherit; }
 /* ============ 查看器 ============ */
 .viewer {
   position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   inset: 0;
   z-index: 90;
   display: flex;
@@ -313,6 +321,10 @@ button { font-family: inherit; }
 /* ============ 弹窗 ============ */
 .modal {
   position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   inset: 0;
   z-index: 120;
   display: flex;
@@ -321,7 +333,8 @@ button { font-family: inherit; }
   background: rgba(0, 0, 0, 0.45);
 }
 .modal-box {
-  width: min(380px, 92vw);
+  width: 380px;
+  max-width: 92vw;
   padding: 20px;
   background: var(--surface);
   border-radius: 12px;
